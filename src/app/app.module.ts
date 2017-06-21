@@ -8,6 +8,7 @@ import { RouterModule }   from '@angular/router';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductListItemComponent } from './product-list-item/product-list-item.
     ShopsDetailComponent,
     ProductComponent,
     ProductListComponent,
-    ProductListItemComponent
+    ProductListItemComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
