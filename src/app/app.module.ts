@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule }    from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ShopsDetailComponent } from './shops-detail/shops-detail.component';
@@ -19,6 +20,7 @@ import { ProductListItemComponent } from './product-list-item/product-list-item.
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot([
       {
         path: 'shops-detail/:id',
