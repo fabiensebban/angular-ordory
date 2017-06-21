@@ -9,6 +9,8 @@ import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { CartComponent } from './cart/cart.component';
+import { HttpModule }    from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { CartComponent } from './cart/cart.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot([
       {
         path: 'shops-detail/:id',
