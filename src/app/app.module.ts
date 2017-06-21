@@ -4,13 +4,25 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ShopsDetailComponent } from './shops-detail/shops-detail.component';
 
+import { RouterModule }   from '@angular/router';
+import { ProductComponent } from './product/product.component';
+import { ProductListComponent } from './product-list/product-list.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ShopsDetailComponent
+    ShopsDetailComponent,
+    ProductComponent,
+    ProductListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {
+        path: 'shops-detail',
+        component: ShopsDetailComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
