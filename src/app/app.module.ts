@@ -10,6 +10,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpModule }    from '@angular/http';
+import { ShopsComponent } from './shops/shops.component';
 
 
 @NgModule({
@@ -19,15 +20,25 @@ import { HttpModule }    from '@angular/http';
     ProductComponent,
     ProductListComponent,
     ProductListItemComponent,
-    CartComponent
+    CartComponent,
+    ShopsComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot([
       {
+        path: 'shops',
+        component: ShopsComponent
+      },
+      {
         path: 'shops-detail/:id',
         component: ShopsDetailComponent
+      },
+      {
+        path: '',
+        redirectTo: '/shops',
+        pathMatch: 'full'
       }
     ])
   ],

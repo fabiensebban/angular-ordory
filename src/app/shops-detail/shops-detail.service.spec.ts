@@ -1,8 +1,8 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ShopDetailService } from './shop-detail.service';
+import { ShopDetailService } from './shops-detail.service';
 
-describe('ShopDetailService', () => {
+describe('ShopsDetailService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ShopDetailService]
