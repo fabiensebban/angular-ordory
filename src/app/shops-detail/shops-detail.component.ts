@@ -4,6 +4,7 @@ import { Location }                 from '@angular/common';
 import { Shop } from '../model/shop';
 import { Address } from '../model/address'
 import { ShopsDetailService } from './shops-detail.service';
+import { ProductListItemService } from '../product-list-item/product-list-item.service';
 import 'rxjs/add/operator/switchMap';
 import { ProductListComponent } from '../product-list/product-list.component';
 
@@ -11,7 +12,7 @@ import { ProductListComponent } from '../product-list/product-list.component';
   selector: 'app-shops-detail',
   templateUrl: './shops-detail.component.html',
   styleUrls: ['./shops-detail.component.css'],
-  providers: [ShopsDetailService]
+  providers: [ShopsDetailService, ProductListItemService]
 })
 export class ShopsDetailComponent implements OnInit {
 
@@ -20,7 +21,8 @@ export class ShopsDetailComponent implements OnInit {
   shopTmp =  {};
 
   constructor(
-    private shopsDetailService: ShopsDetailService
+    private shopsDetailService: ShopsDetailService,
+    private productListItemService: ProductListItemService
   ) { }
 
   getShopDetails(): void {
@@ -38,9 +40,16 @@ export class ShopsDetailComponent implements OnInit {
       console.log("this.shop :", this.shop);
   }
 
-  setShopData(shop: Shop): void{
+  setShopData(shop: any): void{
     this.shopTmp = shop;
+    this.setShopAddress(shop.address);
+    this.productListItemService.getProducts(shop.categories);
     console.log("shopTmp : ",this.shopTmp);
+  }
+
+  setShopAddress(address: Address): void {
+    this.address = address;
+    console.log("address : ",this.address.city);
   }
 
 }
