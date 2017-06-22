@@ -9,9 +9,15 @@ import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { CartComponent } from './cart/cart.component';
+
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
 import { SearchComponent } from './search/search.component';
+
+import { HttpModule }    from '@angular/http';
+import { ShopsComponent } from './shops/shops.component';
+
+
 
 @NgModule({
   declarations: [
@@ -22,13 +28,16 @@ import { SearchComponent } from './search/search.component';
     ProductListItemComponent,
     CartComponent,
     MapComponent,
-    SearchComponent
+    SearchComponent,
+    ShopsComponent
+
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot([
       {
-        path: 'shops-detail/:id',
+        path: 'shop-details/:id',
         component: ShopsDetailComponent
       },
       {
