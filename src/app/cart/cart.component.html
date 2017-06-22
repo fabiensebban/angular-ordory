@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of cart">
+        <td [ngSwitch]="product.name"></td>
+        <td [ngSwitch]="product.quantity"></td>
+        <td [ngSwitch]="product.price"></td>
+      </tr>
+    
+    </tbody>
+  </table>
+
+</div>
