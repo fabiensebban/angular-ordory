@@ -4,4 +4,6 @@ export class Address {
   zipcode: string;
   street: string;
   number: number;
+  longitud: string;
+  latitud: string;
 }
