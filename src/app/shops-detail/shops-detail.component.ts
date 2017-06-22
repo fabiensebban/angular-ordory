@@ -43,8 +43,7 @@ export class ShopsDetailComponent implements OnInit {
   setShopData(shop: any): void{
     this.shopTmp = shop;
     this.setShopAddress(shop.address);
-    this.productListItemService.getProducts(shop.categories);
-    console.log("shopTmp : ",this.shopTmp);
+    //this.productListItemService.getProducts(shop.categories);
   }
 
   setShopAddress(address: Address): void {

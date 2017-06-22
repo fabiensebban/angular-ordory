@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product';
 import { Category } from '../model/category';
-
 import 'rxjs/add/operator/toPromise';
+
 
 @Injectable()
 export class ProductListItemService {
@@ -12,12 +12,16 @@ export class ProductListItemService {
   products: Product[];
   categories: Category[];
 
-  getProducts(categories: any): void{
+  setProducts(categories: any){
     this.categories = categories;
+    console.log("categories name : ",this.categories[0].name);
+  }
+
+  getProducts(): Promise<Category[]> {
     /*for(let category of categories){
     	console.log("category : ",category.name);
     };*/
-    console.log("categories name : ",this.categories[0].name);
+    return Promise.resolve(this.categories);
   }
 
 }

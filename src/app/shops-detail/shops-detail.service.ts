@@ -31,7 +31,7 @@ export class ShopsDetailService {
       */
   //}
 
-  getShopDetails(): Promise<Shop> {
+  getShopDetails(): Promise<any> {
   console.log("entree method service");
     return this.http.get(this.shopDetailsURL, {headers:this.headers})
               .toPromise()

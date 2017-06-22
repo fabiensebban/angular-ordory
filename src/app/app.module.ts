@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { ShopsDetailComponent } from './shops-detail/shops-detail.component';
 
 import { RouterModule }   from '@angular/router';
-import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { CartComponent } from './cart/cart.component';
@@ -23,7 +22,6 @@ import { ShopsComponent } from './shops/shops.component';
   declarations: [
     AppComponent,
     ShopsDetailComponent,
-    ProductComponent,
     ProductListComponent,
     ProductListItemComponent,
     CartComponent,
