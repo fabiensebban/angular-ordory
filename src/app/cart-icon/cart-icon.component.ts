@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart-icon.component.css']
 })
 export class CartIconComponent implements OnInit {
-
+  cartId = localStorage.getItem("cartId");
   constructor() { }
 
   ngOnInit() {
