@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class CartService {
-  private cartUrl = 'http://api.ordory-dev.ml:3000/cart/';  // URL to web api
+  private cartUrl = 'http://api.ordory.ml/cart/';  // URL to web api
   // Allowing CORS
   private headers = new Headers({
     'Content-Type': 'application/json; charset=utf-8',
@@ -28,8 +28,8 @@ export class CartService {
   }
 
   private cartDataHttp(data: any): any{
-    console.log("Data received from Cart Web Service ", JSON.parse(data._body).data.products);
-    return Promise.resolve(JSON.parse(data._body).data.products);
+    console.log("Data received from Cart Web Service ", JSON.parse(data._body).data);
+    return Promise.resolve(JSON.parse(data._body).data);
   }
 
   private handleError(error: any): Promise<any> {

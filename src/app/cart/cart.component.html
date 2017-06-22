@@ -1,5 +1,4 @@
 <div class="panel panel-default">
-
   <!-- Table -->
   <table class="table">
     <thead>
@@ -10,13 +9,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of cart">
-        <td [ngSwitch]="product.name"></td>
-        <td [ngSwitch]="product.quantity"></td>
-        <td [ngSwitch]="product.price"></td>
+      <tr *ngFor="let product of products">
+
+          <td>{{product[0].name}}</td>
+          <td>{{product?.length}}</td>
+          <td>{{(product[0].price) * (product?.length)}}</td>
       </tr>
-    
     </tbody>
   </table>
-
 </div>
