@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="input-group">
+      <input #searchInput placeholder="Search a restaurant..." class="form-control search-input">
+      <span class="input-group-btn">
+        <button #searchBtn (click)="searchShops(searchInput.value)" class="btn btn-warning btn-block search-btn">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </span>
+    </div>
+    <button #aroundmeBtn (click)="aroundMe()" class="btn btn-success btn-block search-btn">Around Me</button>
+  </div>
+</div>
