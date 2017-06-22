@@ -10,8 +10,11 @@ export class ProductListItemService {
 
   products: Product[];
 
-  getProducts(data: any): void{
-    console.log(data[0].name);
+  getProducts(categories: any): void{
+    for(let category of categories){
+    	console.log("category : ",category.name);
+    };
+    console.log(categories[0].name);
   }
 
 }

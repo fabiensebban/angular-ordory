@@ -32,7 +32,7 @@ import { ShopsComponent } from './shops/shops.component';
         component: ShopsComponent
       },
       {
-        path: 'shops-detail/:id',
+        path: 'shop-details/:id',
         component: ShopsDetailComponent
       },
       {
