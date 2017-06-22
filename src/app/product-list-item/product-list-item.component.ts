@@ -4,6 +4,7 @@ import { Category } from '../model/category';
 import 'rxjs/add/operator/toPromise';
 import { ShopsDetailService } from '../shops-detail/shops-detail.service';
 import { Shop } from '../model/shop';
+import { Product } from '../model/product';
 
 @Component({
   selector: 'app-product-list-item',
@@ -23,6 +24,10 @@ export class ProductListItemComponent implements OnInit {
   ngOnInit(): void {
     //this.productListItemService.getProducts().then(categories => console.log("HHHHH : ",categories));
     this.shopsDetailService.getShopDetails().then(data => this.categories = data.categories);
+  }
+
+  onSelectProduct(product: Product): void{
+    console.log("Product selected : ",product.name);
   }
 
 }

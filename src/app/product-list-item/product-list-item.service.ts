@@ -14,7 +14,6 @@ export class ProductListItemService {
 
   setProducts(categories: any){
     this.categories = categories;
-    console.log("categories name : ",this.categories[0].name);
   }
 
   getProducts(): Promise<Category[]> {
