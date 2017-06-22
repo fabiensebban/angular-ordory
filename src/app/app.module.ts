@@ -9,6 +9,9 @@ import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
 import { CartComponent } from './cart/cart.component';
+import { MapComponent } from './map/map.component';
+import { AgmCoreModule } from '@agm/core';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { CartComponent } from './cart/cart.component';
     ProductComponent,
     ProductListComponent,
     ProductListItemComponent,
-    CartComponent
+    CartComponent,
+    MapComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -25,8 +30,15 @@ import { CartComponent } from './cart/cart.component';
       {
         path: 'shops-detail/:id',
         component: ShopsDetailComponent
+      },
+      {
+        path: '',
+        component: MapComponent
       }
-    ])
+    ]),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyASuJA9GSUWiLy8y_SMiitucXKHp60IXLY'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
