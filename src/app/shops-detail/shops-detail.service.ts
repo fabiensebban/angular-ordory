@@ -10,9 +10,18 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ShopsDetailService {
 
+  private shopDetailsURL = 'http://api.ordory.ml/shop/364378377';  // URL to web api
+
+  private headers = new Headers({
+    'Content-Type': 'application/json; charset=utf-8',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
+  });
+
   constructor(
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private http: Http
   ) { }
 
   //ngOnInit(): void {
@@ -21,6 +30,23 @@ export class ShopsDetailService {
       .subscribe(hero => this.hero = hero);
       */
   //}
+
+  getShopDetails(): Promise<Shop> {
+    return this.http.get(this.shopDetailsURL, {headers:this.headers})
+              .toPromise()
+              .then(this.showDataHttp)
+              .catch(this.handleError);
+  }
+
+  private handleError(error: any): Promise<any> {
+    console.error('ERREUR SHOPS : ', error); // for demo purposes only
+    return Promise.reject(error.message || error);
+  }
+
+  private showDataHttp(shops: any): Promise<any>{
+    console.log("Data Shops : ",shops);
+    return Promise.resolve(shops);
+  }
 
   goBack(): void {
     this.location.back();

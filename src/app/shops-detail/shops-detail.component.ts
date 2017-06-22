@@ -10,11 +10,19 @@ import { ProductListComponent } from '../product-list/product-list.component';
   selector: 'app-shops-detail',
   templateUrl: './shops-detail.component.html',
   styleUrls: ['./shops-detail.component.css'],
-
+  providers: [ShopsDetailService]
 })
 export class ShopsDetailComponent implements OnInit {
 
-  shops: Shop[];
+  shop: Shop;
+
+  constructor(
+    private shopsDetailService: ShopsDetailService
+  ) { }
+
+  getShopDetails(): void {
+    this.shopsDetailService.getShopDetails().then(shop => this.shop = shop);
+  }
 
   ngOnInit(): void {
     /*this.route.params

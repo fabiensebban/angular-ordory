@@ -1,3 +1,56 @@
-<p>
-LOOOOOOOL
-</p>
+
+<div class="col-md-12">
+  <div class="thumbnail">
+    <div class="caption-full">
+        <h4><a href="#">{{ shop.name }}</a></h4>
+        <p>
+          Description
+          Description
+          Description
+          Description
+          Description
+          Description
+        </p>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of cart">
+        <td [ngSwitch]="product.name"></td>
+        <td [ngSwitch]="product.quantity"></td>
+        <td [ngSwitch]="product.price"></td>
+        <td [ngSwitch]="product.addProduct"><a class="btn btn-success">+</a></td>
+      </tr>
+      <tr >
+        <td> okkkkk</td>
+        <td> okkkkk</td>
+        <td> okkkkk</td>
+        <td> <a class="btn btn-success">+</a></td>
+      </tr>
+      <tr >
+        <td> okkkkk</td>
+        <td> okkkkk</td>
+        <td> okkkkk</td>
+        <td> <a class="btn btn-success">+</a></td>
+      </tr>
+      <tr >
+        <td> okkkkk</td>
+        <td> okkkkk</td>
+        <td> okkkkk</td>
+        <td> <a class="btn btn-success">+</a></td>
+      </tr>
+    </tbody>
+  </table>
+<div>
