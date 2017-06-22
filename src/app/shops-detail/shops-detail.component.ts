@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 import { Shop } from '../model/shop';
+import { Address } from '../model/address'
 import { ShopsDetailService } from './shops-detail.service';
 import 'rxjs/add/operator/switchMap';
 import { ProductListComponent } from '../product-list/product-list.component';
