@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SHOPS } from './mock-shops';
+import { Shop } from '../model/shop';
+import { SHOPS } from '../mock-shops';
 
 @Component({
   selector: 'app-search',
@@ -13,10 +14,10 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  shopsList: Shop[];
+
   searchShops(searchInput: string) {
-    if (searchInput.length > 2) {
-      console.log(searchInput);
-    }
+      this.getShops().then(shops => this.shopsList = shops);
   }
 
   getShops(): Promise<Shop[]> {
