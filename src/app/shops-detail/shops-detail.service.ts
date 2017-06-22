@@ -32,6 +32,7 @@ export class ShopsDetailService {
   //}
 
   getShopDetails(): Promise<Shop> {
+  console.log("entree method service");
     return this.http.get(this.shopDetailsURL, {headers:this.headers})
               .toPromise()
               .then(this.showDataHttp)
@@ -44,8 +45,8 @@ export class ShopsDetailService {
   }
 
   private showDataHttp(shops: any): Promise<any>{
-    console.log("Data Shops : ",shops);
-    return Promise.resolve(shops);
+    console.log("Data Shops : ",JSON.parse(shops._body).data);
+    return Promise.resolve(JSON.parse(shops._body).data);
   }
 
   goBack(): void {

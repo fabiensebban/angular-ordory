@@ -15,13 +15,17 @@ import { ProductListComponent } from '../product-list/product-list.component';
 export class ShopsDetailComponent implements OnInit {
 
   shop: Shop;
+  address: Address;
+  shopTmp =  {};
 
   constructor(
     private shopsDetailService: ShopsDetailService
   ) { }
 
   getShopDetails(): void {
-    this.shopsDetailService.getShopDetails().then(shop => this.shop = shop);
+    this.shopsDetailService.getShopDetails().then(shop => this.setShopData(shop));
+    //this.shopsDetailService.getShopDetails().then(shop => this.shop = shop);
+
   }
 
   ngOnInit(): void {
@@ -29,6 +33,13 @@ export class ShopsDetailComponent implements OnInit {
       .switchMap((params: Params) => this.heroService.getHero(+params['id']))
       .subscribe(hero => this.hero = hero);
       */
+      this.getShopDetails();
+      console.log("this.shop :", this.shop);
+  }
+
+  setShopData(shop: Shop): void{
+    this.shopTmp = shop;
+    console.log("shopTmp : ",this.shopTmp);
   }
 
 }
