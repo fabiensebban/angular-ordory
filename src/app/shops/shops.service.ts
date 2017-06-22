@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ShopsService {
 
-  private heroesUrl = 'http://api.ordory.ml/shops?lat=latitude&long=longitude&radius=5&address=17, rue de charenton, Paris 12';  // URL to web api
+  private heroesUrl = 'http://api.ordory.ml/shops?lat=48&long=2&radius=5&address=Paris, rue de charenton, Paris 12';  // URL to web api
 
   private headers = new Headers({
     'Content-Type': 'application/json; charset=utf-8',
@@ -32,8 +32,8 @@ export class ShopsService {
   }
 
   private showDataHttp(shops: any): Promise<any>{
-    console.log("Data Shops : ",shops);
-    return Promise.resolve(shops);
+    console.log("Data Shops : ",JSON.parse(shops._body));
+    return Promise.resolve(JSON.parse(shops._body));
   }
 
 

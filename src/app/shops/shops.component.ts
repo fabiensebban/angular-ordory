@@ -12,7 +12,7 @@ import 'rxjs/add/operator/switchMap';
   providers: [ShopsService]
 })
 export class ShopsComponent implements OnInit {
-  title = "Liste des Shops !";
+  title = "List Shops";
   shops: Shop[];
   selectedShop: Shop;
 
