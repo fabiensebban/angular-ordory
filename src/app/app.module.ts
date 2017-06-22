@@ -8,7 +8,10 @@ import { RouterModule }   from '@angular/router';
 import { ProductComponent } from './product/product.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
+import { CartIconComponent } from './cart-icon/cart-icon.component';
 import { CartComponent } from './cart/cart.component';
+import { CartService } from './cart/cart.service';
+
 
 import { MapComponent } from './map/map.component';
 import { AgmCoreModule } from '@agm/core';
@@ -29,7 +32,8 @@ import { ShopsComponent } from './shops/shops.component';
     CartComponent,
     MapComponent,
     SearchComponent,
-    ShopsComponent
+    ShopsComponent,
+    CartIconComponent
 
   ],
   imports: [
@@ -43,13 +47,17 @@ import { ShopsComponent } from './shops/shops.component';
       {
         path: '',
         component: MapComponent
+      },
+      {
+        path: 'cart/:id',
+        component: CartComponent
       }
     ]),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyASuJA9GSUWiLy8y_SMiitucXKHp60IXLY'
     })
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
