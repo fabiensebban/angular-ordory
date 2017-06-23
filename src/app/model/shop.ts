@@ -5,6 +5,8 @@ import { Product } from '../model/product';
 export class Shop {
   id: number;
   name: string;
+  longitude: number;
+  latitude: number;
   address: Address;
   type: Type;
 }
