@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductListItemService } from './product-list-item.service';
 import { Category } from '../model/category';
 import 'rxjs/add/operator/toPromise';
+import { ActivatedRoute, Params }   from '@angular/router';
 import { ShopsDetailService } from '../shops-detail/shops-detail.service';
 import { Shop } from '../model/shop';
 import { Product } from '../model/product';
@@ -16,17 +17,21 @@ import { CartService } from '../cart/cart.service';
 export class ProductListItemComponent implements OnInit {
   shop: Shop;
   categories: Category[];
-
+  cartId = localStorage.getItem("cartId");
   constructor(
     private productListItemService: ProductListItemService,
     private shopsDetailService: ShopsDetailService,
-    private cartService: CartService
+    private cartService: CartService,
+    private route: ActivatedRoute
   ) { }
 
-  cartId = localStorage.getItem("cartId");
-  
   ngOnInit(): void {
-    this.shopsDetailService.getShopDetails().then(data => this.categories = data.categories);
+    this.route.params
+      .switchMap((params: Params) => this.shopsDetailService.getShopDetails(+params['id']))
+      .subscribe((shop) => {
+          this.shop = shop;
+          this.categories = shop.categories;
+      });
   }
 
   onSelectProduct(product: Product): void{
@@ -35,7 +40,6 @@ export class ProductListItemComponent implements OnInit {
                     .then((cart) => {
                       localStorage.setItem("cartCountItems", cart.products.length.toString())
                     });
-
   }
 
 }
