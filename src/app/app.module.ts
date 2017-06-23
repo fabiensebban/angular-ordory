@@ -15,8 +15,6 @@ import { AgmCoreModule } from '@agm/core';
 import { SearchComponent } from './search/search.component';
 
 import { HttpModule }    from '@angular/http';
-import { ShopsComponent } from './shops/shops.component';
-
 
 
 @NgModule({
@@ -28,9 +26,7 @@ import { ShopsComponent } from './shops/shops.component';
     ProductListItemComponent,
     CartComponent,
     MapComponent,
-    SearchComponent,
-    ShopsComponent
-
+    SearchComponent
   ],
   imports: [
     BrowserModule,
