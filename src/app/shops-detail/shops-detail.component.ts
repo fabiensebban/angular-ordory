@@ -18,37 +18,28 @@ export class ShopsDetailComponent implements OnInit {
 
   shop: Shop;
   address: Address;
-  shopTmp =  {};
 
   constructor(
     private shopsDetailService: ShopsDetailService,
-    private productListItemService: ProductListItemService
+    private productListItemService: ProductListItemService,
+    private route: ActivatedRoute
   ) { }
 
-  getShopDetails(): void {
-    this.shopsDetailService.getShopDetails().then(shop => this.setShopData(shop));
-    //this.shopsDetailService.getShopDetails().then(shop => this.shop = shop);
-
-  }
-
   ngOnInit(): void {
-    /*this.route.params
-      .switchMap((params: Params) => this.heroService.getHero(+params['id']))
-      .subscribe(hero => this.hero = hero);
-      */
-      this.getShopDetails();
-      console.log("this.shop :", this.shop);
+    this.route.params
+      .switchMap((params: Params) => this.shopsDetailService.getShopDetails(+params['id']))
+      .subscribe((shop) => {
+          this.shop = shop;
+          this.setShopData(shop);
+      });
   }
 
   setShopData(shop: any): void{
-    this.shopTmp = shop;
     this.setShopAddress(shop.address);
-    //this.productListItemService.getProducts(shop.categories);
   }
 
   setShopAddress(address: Address): void {
     this.address = address;
-    console.log("address : ",this.address.city);
   }
 
 }
