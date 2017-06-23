@@ -1,10 +1,26 @@
-<app-search></app-search>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="input-group">
+      <input #searchInput placeholder="Search a restaurant..." class="form-control search-input">
+      <span class="input-group-btn">
+        <button #searchBtn (click)="searchShops(searchInput.value)" class="btn btn-warning btn-block search-btn">
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+      </span>
+    </div>
+    <!-- <button #aroundmeBtn (click)="aroundMe()" class="btn btn-success btn-block search-btn">Around Me</button> -->
+  </div>
+</div>
 <div class="row">
   <div class="col-xs-12">
     <!-- this creates a google map on the page with the given lat/lng from -->
     <!-- the component as the initial center of the map: -->
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-      <agm-marker *ngFor="let shop of shopsList" [latitude]="shop.address.latitud" [longitude]="shop.address.longitud"></agm-marker>
+      <div *ngIf="list">
+        <agm-marker *ngFor="let item of list" [latitude]="item.latitude" [longitude]="item.longitude" >
+          <agm-info-window><a href="/shop-details/{{ item.id }}">{{ item.name }}</a></agm-info-window>
+        </agm-marker>
+      </div>
     </agm-map>
   </div>
 </div>
