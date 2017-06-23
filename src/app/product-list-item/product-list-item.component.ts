@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 import { ShopsDetailService } from '../shops-detail/shops-detail.service';
 import { Shop } from '../model/shop';
 import { Product } from '../model/product';
-import { CartService } from '../cart/cart.service';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-product-list-item',
@@ -23,22 +23,19 @@ export class ProductListItemComponent implements OnInit {
     private cartService: CartService
   ) { }
 
+  cartId = localStorage.getItem("cartId");
+  
   ngOnInit(): void {
-    //this.productListItemService.getProducts().then(categories => console.log("HHHHH : ",categories));
-    cartId = localStorage.getItem("cartId");
-
     this.shopsDetailService.getShopDetails().then(data => this.categories = data.categories);
-    this.cartService.getCart(+cartId)
-      .subscribe((cart) => {
-        localStorage.setItem("cartCountItems", cart.lenght)
-      });
-
   }
 
   onSelectProduct(product: Product): void{
     this.productListItemService.addProductToCart(product.id).then(data => localStorage.setItem("cartId",data.data.id));
+    this.cartService.getCart(+this.cartId)
+                    .then((cart) => {
+                      localStorage.setItem("cartCountItems", cart.products.length.toString())
+                    });
 
-    //console.log("Product selected : ",product.name);
   }
 
 }
